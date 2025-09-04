@@ -1,0 +1,51 @@
+{
+    "name": "vscode-extension-template",
+    "displayName": "VSCode Extension Template",
+    "description": "A VSCode Extension Template",
+    "version": "0.0.1",
+    "icon": "images/icon.png",
+    "publisher": "kieferwaight",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/kieferwaight/vscode-extension-template.git"
+    },
+    "engines": {
+        "vscode": "^1.103.0"
+    },
+    "categories": [
+        "Other"
+    ],
+    "keywords": [
+        "vscode"
+    ],
+    "activationEvents": [
+        "onStartupFinished"
+    ],
+    "main": "./out/extension.js",
+    "contributes": {
+        "commands": [],
+        "keybindings": [],
+        "configuration": {
+            "title": "Settings",
+            "properties": {}
+        }
+    },
+    "scripts": {
+        "download:icon": "node ./scripts/icon.js",
+        "vscode:prepublish": "npm run compile",
+        "compile": "tsc -p ./",
+        "watch": "tsc -watch -p ./",
+        "pretest": "npm run compile && npm run lint",
+        "lint": "eslint src --ext ts"
+    },
+    "devDependencies": {
+        "@types/node": "16.x",
+        "@types/vscode": "^1.103.0",
+        "@typescript-eslint/eslint-plugin": "^5.45.0",
+        "@typescript-eslint/parser": "^5.45.0",
+        "@vscode/test-electron": "^2.2.0",
+        "eslint": "^8.28.0",
+        "prettier": "^2.8.8",
+        "typescript": "^4.9.3"
+    }
+}
