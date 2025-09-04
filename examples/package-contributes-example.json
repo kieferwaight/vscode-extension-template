@@ -1,0 +1,83 @@
+{
+  "contributes": {
+    "commands": [
+      {
+        "command": "your-extension-name.helloWorld",
+        "title": "Hello World",
+        "category": "Your Extension"
+      },
+      {
+        "command": "your-extension-name.showOutput",
+        "title": "Show Output Channel",
+        "category": "Your Extension"
+      },
+      {
+        "command": "your-extension-name.openSettings",
+        "title": "Open Extension Settings",
+        "category": "Your Extension"
+      }
+    ],
+    "keybindings": [
+      {
+        "command": "your-extension-name.helloWorld",
+        "key": "ctrl+shift+h",
+        "mac": "cmd+shift+h",
+        "when": "editorTextFocus"
+      },
+      {
+        "command": "your-extension-name.showOutput",
+        "key": "ctrl+shift+o",
+        "mac": "cmd+shift+o"
+      }
+    ],
+    "configuration": {
+      "title": "Your Extension Settings",
+      "properties": {
+        "your-extension-name.enableFeature": {
+          "type": "boolean",
+          "default": true,
+          "description": "Enable the main feature of this extension"
+        },
+        "your-extension-name.maxItems": {
+          "type": "number",
+          "default": 10,
+          "minimum": 1,
+          "maximum": 100,
+          "description": "Maximum number of items to process"
+        },
+        "your-extension-name.customMessage": {
+          "type": "string",
+          "default": "Hello from Your Extension!",
+          "description": "Custom message to display in notifications"
+        },
+        "your-extension-name.logLevel": {
+          "type": "string",
+          "enum": ["debug", "info", "warn", "error"],
+          "default": "info",
+          "description": "Logging level for the extension"
+        }
+      }
+    },
+    "menus": {
+      "editor/context": [
+        {
+          "command": "your-extension-name.helloWorld",
+          "when": "editorTextFocus",
+          "group": "myExtension@1"
+        }
+      ],
+      "explorer/context": [
+        {
+          "command": "your-extension-name.processFile",
+          "when": "resourceExtname == .txt",
+          "group": "myExtension@1"
+        }
+      ]
+    },
+    "activationEvents": [
+      "onCommand:your-extension-name.helloWorld",
+      "onLanguage:javascript",
+      "onStartupFinished"
+    ]
+  }
+}
